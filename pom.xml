@@ -55,7 +55,7 @@
     </dependency>
 
     <!--Spring Security-->
-    <!--sping security web and spring security config-->
+    <!--spring security web and spring security config-->
     <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
     <dependency>
       <groupId>org.springframework.security</groupId>
@@ -66,6 +66,13 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
+      <version>${springsecurity.version}</version>
+    </dependency>
+
+    <!--Add Spring Security Taglibs support-->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
       <version>${springsecurity.version}</version>
     </dependency>
 
