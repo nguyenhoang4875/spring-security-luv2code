@@ -13,16 +13,17 @@
     <title>luv2code Company Home Page</title>
 </head>
 <body>
-    <h2>luv2code Company Home Page</h2>
-    <hr>
-    Welcome to the luv2code company home page!
-    
-    <hr>
-    <%--display user name and role--%>
-    User: <security:authentication property="principal.username"/>
-    <br>
-    Roles(s): <security:authentication property="principal.authorities"/>
+<h2>luv2code Company Home Page</h2>
+<hr>
+Welcome to the luv2code company home page!
 
+<%--display user name and role--%>
+<hr>
+User: <security:authentication property="principal.username"/>
+<br>
+Roles(s): <security:authentication property="principal.authorities"/>
+
+<security:authorize access="hasRole('MANAGER')">
     <hr>
     <%--Add a link to point /leader .. this for the managers--%>
     <p>
@@ -31,17 +32,22 @@
     </p>
 
     <hr>
+</security:authorize>
+
+<security:authorize access="hasRole('ADMIN')">
     <%--Add a link to point /systems .. this for the admins--%>
     <p>
         <a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
         (Only for Admin peeps)
     </p>
 
+</security:authorize>
 
-    <%--Add a logout button--%>
-    <form:form action="${pageContext.request.contextPath}/logout" method="post">
-        <input type="submit" value="Logout"/>
-    </form:form>
+<hr>
+<%--Add a logout button--%>
+<form:form action="${pageContext.request.contextPath}/logout" method="post">
+    <input type="submit" value="Logout"/>
+</form:form>
 
 </body>
 </html>
